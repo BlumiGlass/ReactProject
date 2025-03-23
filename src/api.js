@@ -1,7 +1,7 @@
 export const fetchData = async () => {
     return new Promise(async(resolve, reject) => {
             try {
-                if (Math.random() < 0.5) {
+                if (Math.random() < 0.2) {
                     throw new Error("Simulated network error");
                 }
                 const response = await fetch('https://dummyjson.com/products/category/kitchen-accessories?delay=3000');
