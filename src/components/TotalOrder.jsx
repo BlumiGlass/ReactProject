@@ -2,22 +2,24 @@ import * as React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import { deleteAll, handleChange } from "../redux/CartSlice";
 import { useDispatch, useSelector } from 'react-redux';
-import Popup from './Popup';
+import AlertDialog from './Popup';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const TotalOrder = () => {
-    const price = useSelector(state => state.cart.allPrice).toFixed(2);
+    const price = (useSelector(state => state.cart.allPrice) || 0).toFixed(2);
     const dispatch = useDispatch();
     //const [click,setClick] = React.useState(false);
     
     const checkbox = useSelector(state => state.cart.isChecked);
 
-    const handleAlert = () => {
-        const result = window.confirm("Do you want to finish your order?");
-        if (result) {
+    const [open,setOpen] = React.useState(false);
+
+    const handleClose = (value) => { 
+        setOpen(false);
+        if(value) {
             dispatch(deleteAll());
-        }
+        }   
     };
 
     return (
@@ -33,8 +35,8 @@ const TotalOrder = () => {
                 />
                 Delivery to your home: 20$
             </div>
-            <button onClick={handleAlert}>Order payment</button>
-            {/* {click} */}
+            <button onClick={() => setOpen(true)}>Order payment</button>
+            {open && <AlertDialog open={open} handleClose={handleClose} />}
         </div>
     )
 };

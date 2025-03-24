@@ -1,7 +1,9 @@
 import "../Css/About.css";
+import "../Css/Home.css"
 
 const About=()=>{
     return(
+        <div className="overlay">
         <div className="about-container">
             <h1>About Our Kitchen Accessories Store</h1>
             <p>
@@ -13,6 +15,7 @@ const About=()=>{
                 From utensils to gadgets, we have everything you need to elevate your culinary 
                 skills. Thank you for choosing us for your kitchen needs!
             </p>
+        </div>
         </div>
     )
 };

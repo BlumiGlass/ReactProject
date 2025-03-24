@@ -20,7 +20,7 @@ const ShoppingCart = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className="container text-center shopping-cart-container" style={{marginTop:"100px"}}>
+        <div className="container text-center shopping-cart-container" style={{marginTop:"100px", justifyContent:"flex-start"}}>
             <h2>Cart</h2>
             <TableContainer component={Paper} className="table-container">
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">

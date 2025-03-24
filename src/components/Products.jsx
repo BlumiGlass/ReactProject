@@ -5,6 +5,7 @@ import Item from "./Item";
 import { useNavigate } from "react-router-dom";
 import loadingIcon from "../assets/icons8-loading.gif";
 import "../App.css";
+import Error from "./error";
 
 const Products=()=>{
 
@@ -26,10 +27,10 @@ const Products=()=>{
     }, [error, navigate]);
 
     return (
-        <div className="container text-center" style={{marginTop:"100px"}}>
+        <div className="container text-center shopping-cart-container" style={{marginTop:"100px", position:"relative", top:"0"}}>
             <h2>Products</h2>
             {loading && <img src={loadingIcon} alt="Loading" width="50px" height="50px" />}
-            {error && <p>Error loading products. Please try again later.</p>}
+            {error && <Error/>}
             <div className="row d-flex justify-content-center">
                 {products.length > 0 && products.map((product, index) => {
                     return <Item key={index} item={product} />

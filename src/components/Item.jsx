@@ -11,7 +11,7 @@ const Item = ({ item }) => {
             <img src={item.thumbnail} className="card-img-top" alt="" />
             <div className="card-body">
                 <h5 className="card-title">{item.title}</h5>
-                <p className="card-text">price: {item.price}</p>
+                <p className="card-text">price: {item.price}$</p>
                 <button style={{backgroundColor:"rgba(47, 82, 117,0.4)"}} onClick={() => dispatch(addToCart(item))}>Add to cart</button>
             </div>
         </div>
